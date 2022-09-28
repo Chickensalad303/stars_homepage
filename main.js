@@ -32,7 +32,8 @@ camera.position.setZ(50); // remove this if you are animating camera, it will ju
 
 window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight)
-  camera.aspect = window.innerWidth / window.innerHeight
+  
+  // camera.aspect = window.innerWidth / window.innerHeight // comment out to scale to fit
   camera.updateProjectionMatrix()
   // renderer.render()
 })
@@ -44,7 +45,7 @@ renderer.render(scene, camera)
 const geometry = new THREE.BoxGeometry(1, 1, 1)
 const material = new THREE.MeshStandardMaterial({ color: 0xff0000 , wireframe: false})
 const torus = new THREE.Mesh(geometry, material)
-torus.position.set(0,0,0)
+torus.position.set(0,0,2)
 torus.castShadow = true
 torus.receiveShadow = true
 scene.add(torus)
@@ -110,14 +111,25 @@ loader.load("donut_2.0.glb", function (gltf){
 
 
 var xwing
-loader.load("xwing_drift_invert.blend.glb", function (glb){
+var xwing_anim
+loader.load("xwing_drift_invert.blend2.glb", function (glb){
   const blend = glb.scene
-  blend.position.set(0,0,0)
-  blend.scale.set(1,1,1)
-  scene.add(blend)
+  blend.position.set(0,0,25)
+  blend.scale.set(2.5, 2.5, 1)
 
-  xwing = blend.children[0]
-  console.log(xwing)
+  scene.add(blend)
+  xwing_anim = new THREE.AnimationMixer(blend)
+  const clips = glb.animations
+
+  clips.forEach(function(clip){
+    const action = xwing_anim.clipAction(clip)
+
+    action.play()
+  })
+
+
+  // xwing = blend.children[0]
+  // console.log(xwing)
 
   // callrender()
 }, function(xhr){
@@ -131,10 +143,14 @@ loader.load("xwing_drift_invert.blend.glb", function (glb){
 
 
 // const contols = new OrbitControls(camera, renderer.domElement)
-
+const clock = new THREE.Clock()
 
 function callrender() {
   requestAnimationFrame( callrender )
+  if (xwing_anim){
+
+    xwing_anim.update(clock.getDelta())
+  }
   renderer.render(scene, camera)
   
   donut.rotation.y += 0.005
@@ -142,5 +158,5 @@ function callrender() {
   
   // contols.update()
 }
+renderer.setAnimationLoop(callrender)
 
-callrender()
