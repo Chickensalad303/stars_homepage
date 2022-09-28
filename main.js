@@ -142,7 +142,7 @@ var death_star
 loader.load("death_star_ii.glb", function (dt){
   
   const dt_model = dt.scene
-  dt_model.position.set(25, 10, 0)
+  dt_model.position.set(25, 10, 5)
   dt_model.scale.set(2, 2, 3)
   dt_model.rotation.y = -0.5
   scene.add(dt_model)
@@ -175,6 +175,34 @@ loader.load("death_star_ii.glb", function (dt){
 // const contols = new OrbitControls(camera, renderer.domElement)
 
 
+//scroll animation
+function moveCamera(){
+  const t = document.body.getBoundingClientRect().top;
+
+
+  window.addEventListener('wheel', (a) => {
+      let scrolldir = a.deltaY
+      console.log(scrolldir)
+      let rotateamount = scrolldir * 0.0002
+      if (scrolldir < 0){
+         
+          death_star.rotation.z += 0.1;
+      }
+      else if (scrolldir > 0 ){
+          death_star.rotation.z += -0.1;
+      }
+  })
+
+
+  //camera.position.z = t * -0.01;
+  //camera.position.x = t * -0.00001;
+  //camera.rotation.y = t * -0.00001;
+ 
+}
+
+document.body.onscroll = moveCamera
+moveCamera()
+
 
 
 
@@ -199,31 +227,4 @@ renderer.setAnimationLoop(callrender)
 
 
 
-
-//scroll animation
-function moveCamera(){
-  const t = document.body.getBoundingClientRect().top;
-
-
-  window.addEventListener('wheel', (a) => {
-      let scrolldir = a.deltaY
-      // let rotateamount = scrolldir * 0.00002
-      if (scrolldir < 0){
-         
-          death_star.rotation.z += 0.001;
-      }
-      else if (scrolldir > 0 ){
-          death_star.rotation.z += -0.001;
-      }
-  })
-
-
-  //camera.position.z = t * -0.01;
-  //camera.position.x = t * -0.00001;
-  //camera.rotation.y = t * -0.00001;
- 
-}
-
-document.body.onscroll = moveCamera
-moveCamera()
 
