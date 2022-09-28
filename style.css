@@ -3,3 +3,10 @@ canvas{
   top: 0;
   left: 0;
 }
+main{
+  position: absolute;
+  color: white;
+}
+.bottom {
+  margin-top: 1000px;
+}

@@ -3,7 +3,7 @@ import './style.css'
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-
+import { TGALoader } from 'three/examples/jsm/loaders/TGALoader.js';
 
 
 
@@ -12,6 +12,7 @@ const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1 , 1000)
 
 const loader = new GLTFLoader()
+const tgaloader = new TGALoader()
 
 
 const renderer = new THREE.WebGLRenderer({
@@ -88,26 +89,30 @@ Array(2000).fill().forEach(addstars)
 
 // https://sketchfab.com/3d-models/donut-20-8d6cac74abfc4b408ec86c37661fa5a6
 var donut
+
 loader.load("donut_2.0.glb", function (gltf){
   const model = gltf.scene
-  model.position.set(18, 9, 35)
+  model.position.set(-18, 9, 35)
   model.scale.set(5,5,5)
   scene.add(model)
-
+  
   donut = model.children[0]
-
+  
   gltf.animations ; // Array<THREE.AnimationClip>
   gltf.scene; // THREE.Group
   gltf.scenes; // Array<THREE.Group>
   gltf.cameras; // Array<THREE.Camera>
   gltf.asset; // Object
   // callrender()
+  
+  
 }, function(xhr){
   // console.log((xhr.loaded / xhr.total * 100) + "% loaded")
 }, function (error){
   console.log("error, ABORT NOW. ARRRRGH")
 }
 )
+
 
 //https://sketchfab.com/3d-models/high-poly-x-wing-fighter-f2170d4a3ee04e8588c0ad29d4f91767
 var xwing
@@ -126,12 +131,6 @@ loader.load("xwing_drift_invert.blend2.glb", function (glb){
 
     action.play()
   })
-
-
-  // xwing = blend.children[0]
-  // console.log(xwing)
-
-  // callrender()
 }, function(xhr){
   console.log((xhr.loaded / xhr.total * 100) + "% loaded")
 },function (error){
@@ -139,24 +138,92 @@ loader.load("xwing_drift_invert.blend2.glb", function (glb){
 }
 )
 
+var death_star
+loader.load("death_star_ii.glb", function (dt){
+  
+  const dt_model = dt.scene
+  dt_model.position.set(25, 10, 0)
+  dt_model.scale.set(2, 2, 3)
+  dt_model.rotation.y = -0.5
+  scene.add(dt_model)
+
+  death_star = dt_model.children[0]
+
+  dt.animations ; // Array<THREE.AnimationClip>
+  dt.scene; // THREE.Group
+  dt.scenes; // Array<THREE.Group>
+  dt.cameras; // Array<THREE.Camera>
+  dt.asset; // Object
+  // callrender()
+  console.log("dt")
+  
+}, function(xhr){
+  // console.log((xhr.loaded / xhr.total * 100) + "% loaded")
+}, function (error){
+  console.log("error, ABORT NOW. ARRRRGH, death star")
+}
+)
+
+//death star
 
 
+  // xwing = blend.children[0]
+  // console.log(xwing)
+
+  // callrender()
 
 // const contols = new OrbitControls(camera, renderer.domElement)
+
+
+
+
+
 const clock = new THREE.Clock()
 
 function callrender() {
   requestAnimationFrame( callrender )
-  if (xwing_anim){
 
-    xwing_anim.update(clock.getDelta())
-  }
-  renderer.render(scene, camera)
-  
+//updating objects might return errors on load, bc obj hasn't loaded in yet, as soon as done loading it'll go away
+
+  xwing_anim.update(clock.getDelta())
+  donut.rotation.x += 0.01
   donut.rotation.y += 0.005
-  donut.rotation.x += 0.005
+  
+  renderer.render(scene, camera)
+
+
   
   // contols.update()
 }
 renderer.setAnimationLoop(callrender)
+
+
+
+
+//scroll animation
+function moveCamera(){
+  const t = document.body.getBoundingClientRect().top;
+
+
+  window.addEventListener('wheel', (a) => {
+      let scrolldir = a.deltaY
+      // let rotateamount = scrolldir * 0.00002
+      if (scrolldir < 0){
+         
+          death_star.rotation.z += 0.001;
+      }
+      else if (scrolldir > 0 ){
+          death_star.rotation.z += -0.001;
+      }
+  })
+
+
+  //camera.position.z = t * -0.01;
+  //camera.position.x = t * -0.00001;
+  //camera.rotation.y = t * -0.00001;
+ 
+}
+
+document.body.onscroll = moveCamera
+moveCamera()
 
