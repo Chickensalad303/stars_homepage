@@ -109,7 +109,7 @@ loader.load("donut_2.0.glb", function (gltf){
 }
 )
 
-
+//https://sketchfab.com/3d-models/high-poly-x-wing-fighter-f2170d4a3ee04e8588c0ad29d4f91767
 var xwing
 var xwing_anim
 loader.load("xwing_drift_invert.blend2.glb", function (glb){
