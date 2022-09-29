@@ -60,7 +60,7 @@ const SpotlightHelper = new THREE.SpotLightHelper(spotlight, 1)
 
 const gridhelper = new THREE.GridHelper(50, 50)
 
-scene.add(spotlight, SpotlightHelper, gridhelper)
+scene.add(spotlight)
 // spotlight.shadow.mapSize.width = 512
 // spotlight.shadow.mapSize.height = 512
 // spotlight.shadow.camera.near = 0.5
@@ -69,13 +69,13 @@ scene.add(spotlight, SpotlightHelper, gridhelper)
 
 
 function addstars() {
-  const RandomRadius = THREE.MathUtils.randFloat(0.2, 0.25)
+  const RandomRadius = THREE.MathUtils.randFloat(0.1, 0.4)
 
   const StarGeometry = new THREE.SphereGeometry(RandomRadius)
   const StarMaterial = new THREE.MeshStandardMaterial({color: 0xffffff})
   const star = new THREE.Mesh(StarGeometry, StarMaterial)
-  const [x, y] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(300))
-  const [z] = Array(3).fill().map(() => THREE.MathUtils.randFloat(-100, 30))
+  const [x, y] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(400))
+  const [z] = Array(3).fill().map(() => THREE.MathUtils.randFloat(-100, 5))
   // if (z > 29){
   //   console.log(z)
   // }
@@ -85,7 +85,7 @@ function addstars() {
 
 }
 
-Array(2000).fill().forEach(addstars)
+Array(4000).fill().forEach(addstars)
 
 // https://sketchfab.com/3d-models/donut-20-8d6cac74abfc4b408ec86c37661fa5a6
 var donut
@@ -142,8 +142,8 @@ var death_star
 loader.load("death_star_ii.glb", function (dt){
   
   const dt_model = dt.scene
-  dt_model.position.set(25, 10, 5)
-  dt_model.scale.set(2, 2, 3)
+  dt_model.position.set(25, 10, 6)
+  dt_model.scale.set(2, 2, 2)
   dt_model.rotation.y = -0.5
   scene.add(dt_model)
 
@@ -164,14 +164,28 @@ loader.load("death_star_ii.glb", function (dt){
 }
 )
 
-//death star
 
 
-  // xwing = blend.children[0]
-  // console.log(xwing)
+//endor
+const endor_texture = new THREE.TextureLoader().load("endor/Endor.jpg")
+const endor_normal = new THREE.TextureLoader().load("endor/Endor01.jpg")
+const endor_opacity = new THREE.TextureLoader().load("endor/Opacity.jpg")
+const endor_specular = new THREE.TextureLoader().load("endor/EndorSpect.jpg")
 
-  // callrender()
+const endor = new THREE.Mesh(
+  new THREE.SphereGeometry(10, 20, 15),
+  new THREE.MeshStandardMaterial({
+    map: endor_texture,
+    // normalMap: endor_normal,
+    // opacity: endor_opacity,
+    // aoMap:endor_specular
+  })
 
+
+)
+endor.position.set(-45, -15, 6)
+endor.scale.set(0.7, 0.7, 0.7)
+scene.add(endor)
 // const contols = new OrbitControls(camera, renderer.domElement)
 
 
@@ -180,21 +194,22 @@ function moveCamera(){
   const t = document.body.getBoundingClientRect().top;
 
 
-  window.addEventListener('wheel', (a) => {
-      let scrolldir = a.deltaY
-      console.log(scrolldir)
-      let rotateamount = scrolldir * 0.0002
-      if (scrolldir < 0){
+  // window.addEventListener('wheel', (a) => {
+  //     let scrolldir = a.deltaY
+  //     console.log(scrolldir)
+  //     let rotateamount = scrolldir * 0.0002
+  //     if (scrolldir < 0){
          
-          death_star.rotation.z += 0.1;
-      }
-      else if (scrolldir > 0 ){
-          death_star.rotation.z += -0.1;
-      }
-  })
+  //         death_star.rotation.z += 0.1;
+  //     }
+  //     else if (scrolldir > 0 ){
+  //         death_star.rotation.z += -0.1;
+  //     }
+  // })
 
 
-  //camera.position.z = t * -0.01;
+
+  camera.position.z = 50 + t * -0.001;
   //camera.position.x = t * -0.00001;
   //camera.rotation.y = t * -0.00001;
  

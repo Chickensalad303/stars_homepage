@@ -3,10 +3,44 @@ canvas{
   top: 0;
   left: 0;
 }
+body{
+  top: 0;
+  left: 0;
+}
 main{
   position: absolute;
   color: white;
 }
 .bottom {
-  margin-top: 3000px;
+  margin-top: 2000px;
+}
+
+
+.navigation {
+  display: flex;
+  justify-items:center;
+  justify-content: space-evenly;
+  font-size: 28px;
+}
+
+.git_img{
+  width: 100px;
+  height: auto;
+  padding-bottom: 0;
+}
+
+.items{
+  text-decoration: none;
+  color: whitesmoke;
+  border: rgb(209, 169, 199) solid;
+  padding: 14px;
+  box-shadow: 3px 2px rgb(209, 112, 209);
+  cursor: pointer;
+  
+}
+
+items:hover{
+  background-color: rgb(238, 165, 220);
+  transition: 0.3s;
+
 }
