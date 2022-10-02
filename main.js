@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { TGALoader } from 'three/examples/jsm/loaders/TGALoader.js';
 
-
+//if site is reloaded while inspector is open, page wont scale properly
 
 // how to publish https://www.youtube.com/watch?v=yo2bMGnIKE8
 const scene = new THREE.Scene()
@@ -18,6 +18,7 @@ const tgaloader = new TGALoader()
 const renderer = new THREE.WebGLRenderer({
   antialias: true,
   canvas: document.querySelector("#bg")
+  
 
 })
 
@@ -238,6 +239,8 @@ function callrender() {
   
   // contols.update()
 }
+console.log("Number of Triangles :", renderer.info.render.triangles);
+
 renderer.setAnimationLoop(callrender)
 
 
