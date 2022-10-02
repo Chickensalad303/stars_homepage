@@ -1,46 +1,75 @@
+body{
+  width: 100%;
+  height: 100%;
+  margin: 0; /* adding margin 0 removes scrolling horizontally*/
+}
 canvas{
   position: fixed;
   top: 0;
   left: 0;
+  
 }
-body{
-  top: 0;
-  left: 0;
-}
+
 main{
+  color: aliceblue;
   position: absolute;
-  color: white;
+  width: 100vw; /*seems unnecessary */
+  width: 100%;
+  margin: 0px auto;
+  padding: 0px;
+  
 }
-.bottom {
-  margin-top: 2000px;
-}
+
 
 
 .navigation {
   display: flex;
-  justify-items:center;
   justify-content: space-evenly;
-  font-size: 28px;
-}
+  align-items: center;
+  
+  --item-font-size: 48px;
+  margin-top: 3%;
 
-.git_img{
-  width: 100px;
-  height: auto;
-  padding-bottom: 0;
-}
-
-.items{
-  text-decoration: none;
-  color: whitesmoke;
-  border: rgb(209, 169, 199) solid;
-  padding: 14px;
-  box-shadow: 3px 2px rgb(209, 112, 209);
-  cursor: pointer;
   
 }
 
-items:hover{
-  background-color: rgb(238, 165, 220);
-  transition: 0.3s;
+
+
+.items{
+  text-decoration: none;
+  color: white;
+  border: rgb(209, 169, 199) solid;
+  border-radius: 5px;
+  padding: 14px;
+  box-shadow: 2px 2px 1px 0px rgba(209, 112, 209, 0.791);
+
+  cursor: pointer;
+  font-size: var(--item-font-size);
+  transition: 0.3s ease-in-out;
+}
+
+.gh_img{
+  height: calc(var(--item-font-size) - 6px);
 
 }
+
+.items:hover{
+
+  background-color: rgba(238, 165, 220, 0.839);
+  box-shadow: 5px 4px rgb(209, 112, 209);
+  
+
+}
+
+
+.footer{
+  margin-top: 2000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: rgba(237, 224, 207, 0.7  );
+  background-color: rgba(95, 132, 201, 0.6);
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
