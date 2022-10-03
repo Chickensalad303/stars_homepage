@@ -23,6 +23,16 @@ main{
 }
 
 
+/* https://codepen.io/alphardex/pen/OJNLyOv */
+.menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10%;
+
+}
+
+
 
 .navigation {
   display: flex;
@@ -30,7 +40,7 @@ main{
   align-items: center;
   
   --item-font-size: 48px;
-  margin-top: 3%;
+  margin-top: 5%;
 
   
 }
@@ -105,7 +115,7 @@ main{
   background-color: rgba(78, 78, 78, 0.8);
   color: #fff;
   text-align: center;
-  border-radius: 6px;
+  border-radius: 5px;
   padding: 5px;
   font-size: 19px;
 
