@@ -4,6 +4,7 @@ import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { TGALoader } from 'three/examples/jsm/loaders/TGALoader.js';
+import { uselessWebButton } from './random_site';
 
 //if site is reloaded while inspector is open, page wont scale properly
 
@@ -42,15 +43,8 @@ window.addEventListener("resize", () => {
 
 
 
-renderer.render(scene, camera)
 
-const geometry = new THREE.BoxGeometry(1, 1, 1)
-const material = new THREE.MeshStandardMaterial({ color: 0xff0000 , wireframe: false})
-const torus = new THREE.Mesh(geometry, material)
-torus.position.set(0,0,2)
-torus.castShadow = true
-torus.receiveShadow = true
-scene.add(torus)
+
 
 const spotlight = new THREE.SpotLight(0xffffff, 1)
 spotlight.position.set(0, 0, 60)
@@ -94,7 +88,7 @@ var donut
 loader.load("donut_2.0.glb", function (gltf){
   const model = gltf.scene
   model.position.set(-18, 9, 35)
-  model.scale.set(5,5,5)
+  model.scale.set(10,10,10)
   scene.add(model)
   
   donut = model.children[0]
@@ -115,6 +109,8 @@ loader.load("donut_2.0.glb", function (gltf){
 )
 
 
+
+
 //https://sketchfab.com/3d-models/high-poly-x-wing-fighter-f2170d4a3ee04e8588c0ad29d4f91767
 var xwing
 var xwing_anim
@@ -123,15 +119,25 @@ loader.load("xwing_drift_invert.blend2.glb", function (glb){
   blend.position.set(0,0,25)
   blend.scale.set(2.5, 2.5, 1)
 
+
   scene.add(blend)
   xwing_anim = new THREE.AnimationMixer(blend)
   const clips = glb.animations
 
+  function removexwing(){
+    scene.remove(blend)
+  }
+  
   clips.forEach(function(clip){
+    
     const action = xwing_anim.clipAction(clip)
-
+    action.setLoop(THREE.LoopOnce)
+    
     action.play()
+    xwing_anim.addEventListener('finished', removexwing)
+
   })
+
 }, function(xhr){
   console.log((xhr.loaded / xhr.total * 100) + "% loaded")
 },function (error){
@@ -210,9 +216,10 @@ function moveCamera(){
 
 
 
-  camera.position.z = 50 + t * -0.001;
-  //camera.position.x = t * -0.00001;
-  //camera.rotation.y = t * -0.00001;
+  camera.position.z = 50 + t * -0.005;
+  camera.position.x = t * 0.002;
+  camera.rotation.y = t * 0.00004;
+
  
 }
 
@@ -243,6 +250,8 @@ console.log("Number of Triangles :", renderer.info.render.triangles);
 
 renderer.setAnimationLoop(callrender)
 
-
+document.getElementById("useless").onclick = function test() {
+  window.open(uselessWebButton())
+}
 
 
