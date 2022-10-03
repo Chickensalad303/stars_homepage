@@ -1,2 +1,2 @@
 # stars_homepage
-just experimenting with threejs
+experimenting with threejs
