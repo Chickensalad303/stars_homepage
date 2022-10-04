@@ -102,6 +102,7 @@ main{
   align-items: center;
   justify-content: center;
   margin-top: 20%;
+
 }
 
 
@@ -114,17 +115,18 @@ main{
   width: 200px;
   background-color: rgba(78, 78, 78, 0.8);
   color: #fff;
-  text-align: center;
   border-radius: 5px;
   padding: 5px;
   font-size: 19px;
-
+  
   /* Position the tooltip */
-  position: absolute;
 
-  margin-top: -5%;
+  
+  text-align: center;
+  /* margin vertical, then horizontal, used for centering*/
+  margin: 2% auto;
 
-  margin-left: 25%;
+  
 
 }
 .swtrilogy:hover .swtrilogy_tootltip{

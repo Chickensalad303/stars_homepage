@@ -13,7 +13,7 @@ const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1 , 1000)
 
 const loader = new GLTFLoader()
-const tgaloader = new TGALoader()
+
 
 
 const renderer = new THREE.WebGLRenderer({
@@ -51,9 +51,9 @@ spotlight.position.set(0, 0, 60)
 spotlight.castShadow = false
 
 
-const SpotlightHelper = new THREE.SpotLightHelper(spotlight, 1)
+// const SpotlightHelper = new THREE.SpotLightHelper(spotlight, 1)
 
-const gridhelper = new THREE.GridHelper(50, 50)
+// const gridhelper = new THREE.GridHelper(50, 50)
 
 scene.add(spotlight)
 // spotlight.shadow.mapSize.width = 512
@@ -104,7 +104,7 @@ loader.load("donut_2.0.glb", function (gltf){
 }, function(xhr){
   // console.log((xhr.loaded / xhr.total * 100) + "% loaded")
 }, function (error){
-  console.log("error, ABORT NOW. ARRRRGH")
+  console.log("error, ABORT NOW. ARRRRGH, donut failed")
 }
 )
 
@@ -156,13 +156,7 @@ loader.load("death_star_ii.glb", function (dt){
 
   death_star = dt_model.children[0]
 
-  dt.animations ; // Array<THREE.AnimationClip>
-  dt.scene; // THREE.Group
-  dt.scenes; // Array<THREE.Group>
-  dt.cameras; // Array<THREE.Camera>
-  dt.asset; // Object
   // callrender()
-  console.log("dt")
   
 }, function(xhr){
   // console.log((xhr.loaded / xhr.total * 100) + "% loaded")
@@ -175,9 +169,9 @@ loader.load("death_star_ii.glb", function (dt){
 
 //endor
 const endor_texture = new THREE.TextureLoader().load("endor/Endor.jpg")
-const endor_normal = new THREE.TextureLoader().load("endor/Endor01.jpg")
-const endor_opacity = new THREE.TextureLoader().load("endor/Opacity.jpg")
-const endor_specular = new THREE.TextureLoader().load("endor/EndorSpect.jpg")
+// const endor_normal = new THREE.TextureLoader().load("endor/Endor01.jpg")
+// const endor_opacity = new THREE.TextureLoader().load("endor/Opacity.jpg")
+// const endor_specular = new THREE.TextureLoader().load("endor/EndorSpect.jpg")
 
 const endor = new THREE.Mesh(
   new THREE.SphereGeometry(10, 20, 15),
