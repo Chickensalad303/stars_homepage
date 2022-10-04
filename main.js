@@ -83,9 +83,10 @@ function addstars() {
 Array(4000).fill().forEach(addstars)
 
 // https://sketchfab.com/3d-models/donut-20-8d6cac74abfc4b408ec86c37661fa5a6
+// https://sketchfab.com/3d-models/interesting-donut-e2395a7a4a19416b93b23f62f97f7ae4#download
 var donut
 
-loader.load("donut_2.0.glb", function (gltf){
+loader.load("interesting_donut.glb", function (gltf){
   const model = gltf.scene
   model.position.set(-18, 9, 35)
   model.scale.set(10,10,10)
