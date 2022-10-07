@@ -36,9 +36,9 @@ camera.position.setZ(50); // remove this if you are animating camera, it will ju
 window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight)
   
-  // camera.aspect = window.innerWidth / window.innerHeight // comment out to scale to fit
+  camera.aspect = window.innerWidth / window.innerHeight // comment out to scale to fit
   camera.updateProjectionMatrix()
-  // renderer.render()
+  renderer.render()
 })
 
 

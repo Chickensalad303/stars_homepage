@@ -1,7 +1,7 @@
 body{
   width: 100%;
   height: 100%;
-  margin: 0; /* adding margin 0 removes scrolling horizontally*/
+  margin: 0; /* these removes scrolling horizontally*/
 }
 canvas{
   position: fixed;
@@ -150,15 +150,23 @@ text-align: center;
 }
 
 .footer{
-  margin-top: 20%;
   font-size: 12px;
   text-align: center;
-  color: rgba(237, 224, 207, 0.8);
-  background-color: rgba(95, 132, 201, 0.4);
-  padding-top: 1%;
+  color: white;
+  padding-top: 45%;
   padding-bottom: 1%;
-
-
+  
 
 }
 
+.footer_svg {
+  aspect-ratio: 960/540;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("layered-waves-haikei.svg"); 
+  overflow: hidden;
+
+
+}
