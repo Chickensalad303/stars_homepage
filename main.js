@@ -20,7 +20,7 @@ const renderer = new THREE.WebGLRenderer({
   antialias: true,
   canvas: document.querySelector("#bg"),
   // powerPreference: "high-performance"
-  precision: "lowp",
+  precision: "lowp"
 
 })
 
