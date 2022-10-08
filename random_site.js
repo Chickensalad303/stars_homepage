@@ -84,6 +84,40 @@ export function uselessWebButton(button, popup) {
 		"https://remoji.com/",
 		"http://papertoilet.com/",
 		"https://loopedforinfinity.com/",
+		"erdetfredag.dk",
+		"https://erdetmandag.dk/",
+		"http://erdettirsdag.dk/",
+		"https://erdetonsdag.dk/",
+		"https://erdettorsdag.dk/",
+		'https://erdetlørdag.dk/',
+		"http://www.xn--erdetsndag-5cb.dk/",
+		"https://procatinator.com/",
+		"https://findtheinvisiblecow.com/",
+		"https://trypap.com/",
+		"https://whatsmystarbucksname.com/",
+		"https://chickensalad303.github.io/stars_homepage/mario_the_ma.jpg",
+		"https://thispersondoesnotexist.com/",
+		"https://scanwiches.com/",
+		"https://neal.fun/paper/",
+		"https://zoomquilt.org/",
+		"https://arkadia.xyz/",
+		"https://zoomquilt2.com/",
+		"https://neal.fun/deep-sea/",
+		"https://www.kamogo.com/22",
+		"https://www.fishcam.com/",
+		"https://www.theuncomfortable.com/",
+		"http://www.googolplexwrittenout.com/",
+		"http://www.byronknoll.com/earth.html",
+		
+
+		
+
+
+
+
+
+
+
 	]
     var site =  sitesList[Math.floor(Math.random() * sitesList.length)] // get random from 
 
