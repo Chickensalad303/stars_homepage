@@ -227,8 +227,8 @@ moveCamera()
 
 const clock = new THREE.Clock()
 
-function callrender() {
-  requestAnimationFrame( callrender )
+function animate() {
+  requestAnimationFrame( animate )
 
 //updating objects might return errors on load, bc obj hasn't loaded in yet, as soon as done loading it'll go away
 
@@ -236,15 +236,18 @@ function callrender() {
   donut.rotation.x += 0.01
   donut.rotation.y += 0.005
   
-  renderer.render(scene, camera)
-
-
-  
+ 
   // contols.update()
+
+  render()
+}
+
+function render(){
+  renderer.render(scene, camera)
 }
 console.log("Number of Triangles :", renderer.info.render.triangles);
 
-renderer.setAnimationLoop(callrender)
+renderer.setAnimationLoop(animate)
 
 document.getElementById("useless").onclick = function test() {
   window.open(uselessWebButton())
