@@ -1,8 +1,8 @@
 export function uselessWebButton(button, popup) {
-	var buttonElement = button
-	var popupElement = popup
-	var initialClick = false
-	var randomRange = 7
+	// var buttonElement = button
+	// var popupElement = popup
+	// var initialClick = false
+	// var randomRange = 7
 
 	var sitesList = [
 		"https://www.adultswim.com/etcetera/elastic-man/app.html",
@@ -109,15 +109,6 @@ export function uselessWebButton(button, popup) {
 		"http://www.googolplexwrittenout.com/",
 		"http://www.byronknoll.com/earth.html",
 		
-
-		
-
-
-
-
-
-
-
 	]
     var site =  sitesList[Math.floor(Math.random() * sitesList.length)] // get random from 
 

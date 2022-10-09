@@ -116,7 +116,7 @@ loader.load("interesting_donut.glb", function (gltf){
 //https://sketchfab.com/3d-models/high-poly-x-wing-fighter-f2170d4a3ee04e8588c0ad29d4f91767
 var xwing
 var xwing_anim
-loader.load("xwing_drift_invert.blend2.glb", function (glb){
+loader.load("xwing_drift_invertblend_gltf/xwing_drift_invertblend2.gltf", function (glb){
   const blend = glb.scene
   blend.position.set(0,0,25)
   blend.scale.set(2.5, 2.5, 1)
@@ -245,7 +245,7 @@ function animate() {
 function render(){
   renderer.render(scene, camera)
 }
-console.log("Number of Triangles :", renderer.info.render.triangles);
+// console.log("Number of Triangles :", renderer.info.render.triangles);
 
 renderer.setAnimationLoop(animate)
 
