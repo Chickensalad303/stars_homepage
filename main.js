@@ -249,7 +249,7 @@ function render(){
 
 renderer.setAnimationLoop(animate)
 
-document.getElementById("useless").onclick = function test() {
+document.getElementById("useless").onclick = () => {
   window.open(uselessWebButton())
 }
 
