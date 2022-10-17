@@ -116,11 +116,11 @@ loader.load("interesting_donut.glb", function (gltf){
 //https://sketchfab.com/3d-models/high-poly-x-wing-fighter-f2170d4a3ee04e8588c0ad29d4f91767
 var xwing
 var xwing_anim
-loader.load("xwing_drift_invert.blend2.glb", function (glb){
+  var xwing_function = loader.load("xwing_drift_invert.blend2.glb", function (glb){
   const blend = glb.scene
   blend.position.set(0,0,25)
   blend.scale.set(2.5, 2.5, 1)
-
+  
 
   scene.add(blend)
   xwing_anim = new THREE.AnimationMixer(blend)
@@ -133,9 +133,11 @@ loader.load("xwing_drift_invert.blend2.glb", function (glb){
   clips.forEach(function(clip){
     
     const action = xwing_anim.clipAction(clip)
+    // action.startAt(2)
+    // action.syncWith()
     action.setLoop(THREE.LoopOnce)
+    window.addEventListener("scroll", () => action.play())
     
-    action.play()
     xwing_anim.addEventListener('finished', removexwing)
 
   })
