@@ -10,7 +10,7 @@ canvas{
   
 }
 
-
+/* using vw as for font sizes to scale on resize */
 main{
   color: aliceblue;
   position: absolute;
@@ -27,24 +27,26 @@ h2, p {
   word-wrap: break-word
 }
 
-/* https://codepen.io/alphardex/pen/OJNLyOv */
-.menu{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 10%;
 
-}
 
 
 
 .navigation {
+  
+  /* -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  -webkit-justify-content: space-between;  */
+
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   
-  --item-font-size: 6vh;
-  margin-top: 5%;
+  --item-font-size: 3vw;
+  margin-top: 5%
 
   
 }
@@ -90,7 +92,7 @@ h2, p {
   color: white;
   border-radius: 5px;
   transition: 0.5s ease-in-out;
-  font-size: 24px;
+  font-size: 1.5vw;
   cursor: pointer;
 
 }
@@ -127,6 +129,8 @@ h2, p {
   border-radius: 5px;
   padding: 5px;
   font-size: 19px;
+  /* in the future try and use font-size: clamp() */
+  
   
   /* Position the tooltip */
 
@@ -146,17 +150,22 @@ h2, p {
 
 
 .swtrilogy_text{
-text-align: center;
+  text-align: center;
+  
+  
 }
 
 .boring{
   display: flex;
   flex-wrap: wrap;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 42px;
+
+  line-height: min(5vw, 42px);
   margin-right: 5%;
   margin-left: 5%;
-  font-size: 28px;
+
+  /* min(size, maximum size) */
+  font-size: min(3.5vw, 28px);
 }
 
 .mayonaise {
@@ -166,7 +175,8 @@ text-align: center;
   justify-content: space-evenly;
   align-content: center;
   margin-top: 10%;
-  min-width: max-content;
+  
+  /* min-width: max-content; causes overflow when resizing to small screens */
 }
 
 .mayonaise_escalator {
@@ -184,9 +194,7 @@ text-align: center;
   text-align: center;
   color: white;
   padding-top: 45%;
-  padding-bottom: 1%;
   
-
 }
 
 .footer_svg {
@@ -204,14 +212,14 @@ text-align: center;
 
 
 /* hamburger navbar */
-.head {
+/* .head {
   background-color: rgba(209, 169, 199, 0.9);
   position: fixed;
   width: 100%;
   height: 52px;
 }
 
-/* Nav items */
+Nav items 
 .menu {
   list-style: none;
   position: absolute;
@@ -225,16 +233,16 @@ text-align: center;
   transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
   transform: scale(1, 0);
   transform-origin: top;
-}
+} */
 
 /* Hamburger menu button */
-.menu-btn:checked ~ .menu {
+/* .menu-btn:checked ~ .menu {
   transform: scale(1, 1);
   transform-origin: top;
   transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
 }
 
-/* Hamburger menbu text */
+Hamburger menbu text
 .menu a {
   text-decoration: none;
   font-weight: 500;
@@ -244,5 +252,4 @@ text-align: center;
   color: #ddd;
   opacity: 0;
   transition: 0.5s;
-}
-
+} */
