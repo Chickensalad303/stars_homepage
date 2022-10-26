@@ -92,7 +92,7 @@ h2, p {
   color: white;
   border-radius: 5px;
   transition: 0.5s ease-in-out;
-  font-size: 1.5vw;
+  font-size: max(1.7vw, 12px);
   cursor: pointer;
 
 }
@@ -113,8 +113,8 @@ h2, p {
 }
 .swtrilogy_img {
   /* scale image */
-  width: auto;
   max-width: 100%;
+  
 }
 
 
@@ -127,8 +127,8 @@ h2, p {
   background-color: rgba(78, 78, 78, 0.8);
   color: #fff;
   border-radius: 5px;
-  padding: 5px;
-  font-size: 19px;
+  padding: 8px;
+  font-size: clamp(12px, 1.5vw, 24px);
   /* in the future try and use font-size: clamp() */
   
   
