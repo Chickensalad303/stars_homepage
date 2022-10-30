@@ -48,7 +48,6 @@ export function uselessWebButton(button, popup) {
 		"http://potatoortomato.com/",
 		"http://iamawesome.com/",
 		"https://strobe.cool/",
-		"http://www.pleaselike.com/",
 		"http://thisisnotajumpscare.com/",
 		"http://crouton.net/",
 		//"http://www.wutdafuk.com/",
