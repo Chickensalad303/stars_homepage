@@ -84,7 +84,7 @@ export function uselessWebButton(button, popup) {
 		"https://remoji.com/",
 		"http://papertoilet.com/",
 		"https://loopedforinfinity.com/",
-		"erdetfredag.dk",
+		"https://erdetfredag.dk",
 		"https://erdetmandag.dk/",
 		"http://erdettirsdag.dk/",
 		"https://erdetonsdag.dk/",
