@@ -1,20 +1,27 @@
+/* https://github.com/Chickensalad303/stars_homepage/issues/4 */
+html {
+}
+
+
 body{
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0; /* these removes scrolling horizontally*/
 }
 canvas{
   position: fixed;
   top: 0;
   left: 0;
-  
+
+  /* min height in combination removes white bar when scrolling on mobile */
+  min-height: 100vh;
+
 }
 
 /* using vw as for font sizes to scale on resize */
 main{
   color: aliceblue;
   position: absolute;
-  width: 100vw; /*seems unnecessary */
   width: 100%;
   margin: 0px auto;
   padding: 0px;
