@@ -234,6 +234,74 @@ iframe.mayonaise_elevator{
   }
 }
 
+
+
+.overlay{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* .ov_button {
+
+  right: 10vw;
+  bottom: 10vh;
+  position: absolute;
+
+
+  padding: 5vh;
+  border-radius: 50%;
+  background-color: grey;
+
+  aspect-ratio: 1/1;
+  width: 5vw;
+  background-image: url("/threejs_logo/icon.svg");
+  filter:invert(100%);
+  background-size: 10vw;
+  background-position: center;
+  
+
+
+
+} */
+.ov_button{
+  right: 10vw;
+  bottom: 10vh;
+
+  position: absolute;
+  
+  /* background-color: gray;
+  aspect-ratio: 1/1;
+  width: 10vw
+   */
+   width: 10vw;
+}
+/* https://stackoverflow.com/questions/37771981/css-center-and-rounded-img-inside-div */
+.test {
+  /* right: 10vw;
+  bottom: 10vh;
+  position: absolute; */
+
+  border-radius: 50%;
+  filter: invert(100%);
+
+  
+  /* background-size doesn't work cuz it's dum dum, use padding */
+
+}
+.logo{
+  aspect-ratio: 1/1;
+  
+  /* background-image: url("/threejs_logo/icon.svg"); */
+  background-position:center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter:invert(100%)
+
+}
+
+
+
 .footer{
   font-size: 12px;
   font-size: 1vw;

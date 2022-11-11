@@ -22,6 +22,7 @@ const renderer = new THREE.WebGLRenderer({
   // powerPreference: "high-performance"
   precision: "lowp"
 
+
 })
 
 renderer.shadowMap.enabled = true
