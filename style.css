@@ -5,7 +5,7 @@
 body{
   width: 100%;
   height: 100vh;
-  margin: 0; /* these removes scrolling horizontally*/
+  margin: 0; /*  these removes scrolling horizontally */
 }
 canvas{
   position: fixed;
@@ -14,7 +14,6 @@ canvas{
 
   /* min height in combination removes white bar when scrolling on mobile */
   min-height: 100vh;
-
 }
 
 /* using vw as for font sizes to scale on resize */
@@ -28,6 +27,9 @@ main{
   font-weight: 500;
 
 }
+
+
+/* to enter orbit mode set display none in main */
 
 h2, p {
   word-wrap: break-word
@@ -237,9 +239,9 @@ iframe.mayonaise_elevator{
 
 
 .overlay{
-  position: fixed;
+  /* position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 100vh; */
 }
 
 /* .ov_button {
@@ -265,30 +267,41 @@ iframe.mayonaise_elevator{
 
 } */
 .ov_button{
-  right: 10vw;
-  bottom: 10vh;
 
-  position: absolute;
   
   /* background-color: gray;
   aspect-ratio: 1/1;
   width: 10vw
    */
-   width: 10vw;
 }
-/* https://stackoverflow.com/questions/37771981/css-center-and-rounded-img-inside-div */
+   /* https://stackoverflow.com/questions/37771981/css-center-and-rounded-img-inside-div */
 .test {
   /* right: 10vw;
   bottom: 10vh;
   position: absolute; */
 
-  border-radius: 50%;
-  filter: invert(100%);
-
+  /* filter: invert(100%);
+  width: 100%;
+  height: auto;
+  transform: scale(0.6);
+  margin-top: 1vh;
+  margin-left: 0.5vw;
+  
+  background-color: aqua;
+  border-radius: 50%; */
   
   /* background-size doesn't work cuz it's dum dum, use padding */
+  right: 5vw;
+  bottom: 5vh;
+
+  position: absolute;
+
+  width: max(50px, 8vw);
+
 
 }
+
+
 .logo{
   aspect-ratio: 1/1;
   

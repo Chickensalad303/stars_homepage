@@ -192,8 +192,16 @@ const endor = new THREE.Mesh(
 endor.position.set(-45, -15, 6)
 endor.scale.set(0.7, 0.7, 0.7)
 scene.add(endor)
-// const contols = new OrbitControls(camera, renderer.domElement)
 
+
+
+const contols = new OrbitControls(camera, renderer.domElement)
+document.getElementById("2d_img").addEventListener("click", orbit)
+function orbit(){
+  document.getElementById("main").style.display = "none"
+  document.getElementById("2d").style.display = "none"
+  console.log("bo")
+}
 
 //scroll animation
 function moveCamera(){
@@ -240,7 +248,7 @@ function animate() {
   donut.rotation.y += 0.005
   
  
-  // contols.update()
+  contols.update()
 
   render()
 }
