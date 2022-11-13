@@ -7,7 +7,7 @@ body{
   height: 100vh;
   margin: 0; /*  these removes scrolling horizontally */
 }
-canvas{
+#bg{
   position: fixed;
   top: 0;
   left: 0;
@@ -273,6 +273,9 @@ iframe.mayonaise_elevator{
   aspect-ratio: 1/1;
   width: 10vw
    */
+
+
+
 }
    /* https://stackoverflow.com/questions/37771981/css-center-and-rounded-img-inside-div */
 .test {
@@ -291,25 +294,47 @@ iframe.mayonaise_elevator{
   border-radius: 50%; */
   
   /* background-size doesn't work cuz it's dum dum, use padding */
-  right: 5vw;
-  bottom: 5vh;
+  right: 2vw;
+  bottom: 2vh;
 
-  position: absolute;
+  position: fixed;
 
-  width: max(50px, 8vw);
+  width: max(50px, 6vw);
 
+  transition: 0.5s cubic-bezier(0, 0.93, 0.93, 0.76);
+  cursor: pointer;
 
+  /* use position fixed to fix it to windowwidth/windowheight */
 }
 
+.test:hover{
 
-.logo{
-  aspect-ratio: 1/1;
-  
-  /* background-image: url("/threejs_logo/icon.svg"); */
-  background-position:center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  filter:invert(100%)
+
+  opacity: 0.9;
+  border-radius: 50%;
+  box-shadow: inset 8vw 12vh #353948e6;
+
+}
+/* idea is to toggle between the buttons which actually are images */
+
+.play{
+  right: 8vw;
+  bottom: 2vh;
+
+  position: fixed;
+
+  width: max(50px, 6vw);
+
+  transition: 0.5s cubic-bezier(0, 0.93, 0.93, 0.76);
+  cursor: pointer;
+}
+
+.play:hover{
+
+
+  opacity: 0.9;
+  border-radius: 50%;
+  box-shadow: inset 8vw 12vh #353948e6;
 
 }
 
@@ -336,6 +361,8 @@ iframe.mayonaise_elevator{
 
 
 }
+
+
 
 
 /* hamburger navbar */
