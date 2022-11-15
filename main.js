@@ -189,7 +189,7 @@ loader.load("death_star_ii.glb", function (dt){
 
 
 //endor
-const endor_texture = new THREE.TextureLoader().load("endor/Endor.jpg")
+const endor_texture = new THREE.TextureLoader().load("/endor/Endor.webp")
 // const endor_normal = new THREE.TextureLoader().load("endor/Endor01.jpg")
 // const endor_opacity = new THREE.TextureLoader().load("endor/Opacity.jpg")
 // const endor_specular = new THREE.TextureLoader().load("endor/EndorSpect.jpg")
