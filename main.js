@@ -7,13 +7,11 @@ import { TGALoader } from 'three/examples/jsm/loaders/TGALoader.js';
 import { uselessWebButton } from './random_site';
 import { CameraHelper, Vector2 } from 'three';
 
-
 //if site is reloaded while inspector is open, page wont scale properly
 
 // how to publish https://www.youtube.com/watch?v=yo2bMGnIKE8
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1 , 1000)
-
 const loader = new GLTFLoader()
 
 
@@ -216,7 +214,7 @@ const endor = new THREE.Mesh(
   
   document.getElementById("2d_img").addEventListener("click", orbit)
   var position
-  var o = 0
+  var o = false
   var i = true
   function orbit(){
     if (i == true){
@@ -232,7 +230,8 @@ const endor = new THREE.Mesh(
       console.log("asd", position)
       console.log("fsa", camera.position)
       i = true
-      o++
+      o = true
+      console.log(camera.getEffectiveFOV())
     }
   
   }
@@ -291,11 +290,14 @@ function moveCamera(){
 
     // }
 
-    if (o == 0){
+    if (o == false){
       camera.position.z = 50 + t * -0.005;
       camera.position.x = t * 0.002;
       camera.rotation.y = t * -0.002;
-    }else if (i != 0){
+      console.log(t, "/n", camera.getEffectiveFOV(), "/n", 75 + t * 0.05)
+
+    }else if (o != false){
+
       return
     }
 
