@@ -72,6 +72,7 @@ h2, p {
   cursor: pointer;
   font-size: var(--item-font-size);
   transition: 0.3s ease-in-out;
+  margin: unset;
 }
 
 @media screen and (max-width: 281px){

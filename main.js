@@ -210,31 +210,32 @@ const endor = new THREE.Mesh(
   scene.add(endor)
 
 //orbitcontrols
-  const contols = new OrbitControls(camera, renderer.domElement)
-  
-  document.getElementById("2d_img").addEventListener("click", orbit)
-  var position
-  var o = false
-  var i = true
-  function orbit(){
-    if (i == true){
-      document.getElementById("main").style.display = "none"
-      
-      i = false
+const contols = new OrbitControls(camera, renderer.domElement)
 
-    }
-    else {
-      document.getElementById("main").style.display = "block"
-      var vector = new THREE.Vector3()
-      position = camera.getWorldPosition(vector)
-      console.log("asd", position)
-      console.log("fsa", camera.position)
-      i = true
-      o = true
-      console.log(camera.getEffectiveFOV())
-    }
-  
+document.getElementById("2d_img").addEventListener("click", orbit)
+var position
+var o = false
+var i = true
+function orbit(){
+  if (i == true){
+    document.getElementById("main").style.display = "none"
+    document.getElementById("2d_img").src = "threejs_logo/icon_upscale_squoosh.webp"
+    
+    i = false
   }
+  else {
+    document.getElementById("main").style.display = "block"
+    document.getElementById("2d_img").src = "threejs_logo/cube_button.webp"
+    var vector = new THREE.Vector3()
+    position = camera.getWorldPosition(vector)
+    console.log("asd", position)
+    console.log("fsa", camera.position)
+    i = true
+    o = true
+    console.log(camera.getEffectiveFOV())
+  }
+
+}
 
 
 //scroll animation
