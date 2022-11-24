@@ -5,11 +5,11 @@ export function uselessWebButton(button, popup) {
 	// var randomRange = 7
 
 	var sitesList = [
-		"https://www.adultswim.com/etcetera/elastic-man/app.html",
-		"https://www.adultswim.com/etcetera/zoom/",
-		"https://www.adultswim.com/etcetera/extras/index.php?id=3c",
-		"https://www.adultswim.com/etcetera/choir/",
-		"https://www.adultswim.com/etcetera/smash-n-dab/",
+		// "https://www.adultswim.com/etcetera/elastic-man/app.html",
+		// "https://www.adultswim.com/etcetera/zoom/",
+		// "https://www.adultswim.com/etcetera/extras/index.php?id=3c",
+		// "https://www.adultswim.com/etcetera/choir/",
+		// "https://www.adultswim.com/etcetera/smash-n-dab/",
 		"https://longdogechallenge.com/",
 		"http://heeeeeeeey.com/",
 		"http://corndog.io/",
@@ -107,6 +107,7 @@ export function uselessWebButton(button, popup) {
 		"https://www.theuncomfortable.com/",
 		"http://www.googolplexwrittenout.com/",
 		"http://www.byronknoll.com/earth.html",
+		"https://spinningrat.online/",
 		
 	]
     var site =  sitesList[Math.floor(Math.random() * sitesList.length)] // get random from 
