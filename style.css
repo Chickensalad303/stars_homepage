@@ -343,9 +343,52 @@ iframe.mayonaise_elevator{
 
 }
 
-@media screen and (max-content:800vw) {
-  
+
+.help{
+  /* right: 8vw;
+  bottom: 2vh; */
+
+  /* position: fixed; */
+  position:fixed;
+  display: none;
+
+  bottom: 2vh;
+
+  width: max(40px, 6vw);
+
+  transition: 0.5s cubic-bezier(0, 0.93, 0.93, 0.76);
+  cursor: pointer;
+  left: 2vw;
 }
+
+.help:hover{
+
+
+  opacity: 0.9;
+  border-radius: 50%;
+  box-shadow: inset 8vw 12vh #353948e6;
+
+}
+
+.help_overlay {
+  opacity: 0;
+  top: 25vh;
+  left: 25vw;
+  width: 50vw;
+  position: fixed;
+  transition: 0.5s cubic-bezier(0, 0.93, 0.93, 0.76);
+
+
+}
+
+.help_overlay.fade {
+  opacity: 0.8;
+}
+
+
+
+
+
 
 
 .footer{

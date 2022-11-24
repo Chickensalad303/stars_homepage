@@ -220,12 +220,14 @@ function orbit(){
   if (i == true){
     document.getElementById("main").style.display = "none"
     document.getElementById("2d_img").src = "threejs_logo/icon_upscale_squoosh.webp"
-    
+    document.getElementById("help").style.display = "block"
     i = false
   }
   else {
     document.getElementById("main").style.display = "block"
     document.getElementById("2d_img").src = "threejs_logo/cube_button.webp"
+    document.getElementById("help").style.display = "none"
+
     var vector = new THREE.Vector3()
     position = camera.getWorldPosition(vector)
     console.log("asd", position)
@@ -237,6 +239,25 @@ function orbit(){
 
 }
 
+
+document.getElementById("help").addEventListener("click", () => {
+  
+  document.getElementById("help_overlay").classList.toggle("fade")
+  document.getElementById("help_overlay").style.display = "block"
+  var fade_interval = setInterval(() => {
+    
+    document.getElementById("help_overlay").classList.remove("fade")
+    
+  }, 3000)
+  
+  var a = setInterval(() => {
+        document.getElementById("help_overlay").style.display = "none"
+        clearInterval(a)
+        clearInterval(fade_interval)
+    
+  }, 3500)
+
+})
 
 //scroll animation
 function moveCamera(){
