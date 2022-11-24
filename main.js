@@ -239,23 +239,34 @@ function orbit(){
 
 }
 
-
 document.getElementById("help").addEventListener("click", () => {
-  
-  document.getElementById("help_overlay").classList.toggle("fade")
-  document.getElementById("help_overlay").style.display = "block"
+
+
+  document.getElementById("help_overlay").classList.add("fade")
   var fade_interval = setInterval(() => {
-    
     document.getElementById("help_overlay").classList.remove("fade")
-    
+    clearInterval(fade_interval)
   }, 3000)
+
+  // document.getElementById("help_overlay").style.display = "block"
+  // var i = setInterval(() => {
+  //   document.getElementById("help_overlay").classList.add("fade")
+  // }, 0)
   
-  var a = setInterval(() => {
-        document.getElementById("help_overlay").style.display = "none"
-        clearInterval(a)
-        clearInterval(fade_interval)
+  
+  // var fade_interval = setInterval(() => {
     
-  }, 3500)
+  //   document.getElementById("help_overlay").classList.remove("fade")
+  //   clearInterval(i)
+  // }, 3000)
+  
+  // var a = setInterval(() => {
+  //       document.getElementById("help_overlay").style.display = "none"
+  //       clearInterval(a)
+  //       clearInterval(fade_interval)
+  //       clearInterval(fade_in)
+     
+  // }, 3500)
 
 })
 

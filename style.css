@@ -371,14 +371,16 @@ iframe.mayonaise_elevator{
 }
 
 .help_overlay {
-  opacity: 0;
   top: 25vh;
   left: 25vw;
   width: 50vw;
   position: fixed;
+  opacity: 0;
+
+  /* makes img non interactable */
+  pointer-events: none;
+  user-select: none;
   transition: 0.5s cubic-bezier(0, 0.93, 0.93, 0.76);
-
-
 }
 
 .help_overlay.fade {
