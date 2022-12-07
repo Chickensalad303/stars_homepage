@@ -34,11 +34,25 @@ renderer.setSize( window.innerWidth, window.innerHeight)
 
 camera.position.setZ(50); // remove this if you are animating camera, it will jump to next locatation on scroll or click and wont be smooth
 
+//is mobile & not laptop/laptop + touch
+function ismobile(){
+  var pointer = window.matchMedia('(pointer: coarse)').matches;
+  return pointer
+}
+
 
 window.addEventListener("resize", () => {
-  renderer.setSize(window.innerWidth, window.innerHeight)
+  if (ismobile() == true){
+    console.log("is mobile")
+    renderer.setSize(window.innerWidth, window.innerHeight)
   
-  camera.aspect = window.innerWidth / window.innerHeight // comment out to scale to fit
+  }else {
+    console.log("is pc")
+    renderer.setSize(window.innerWidth, window.innerHeight)
+    
+    camera.aspect = window.innerWidth / window.innerHeight // comment out to scale to fit
+
+  }
   camera.updateProjectionMatrix()
   renderer.render()
 })
@@ -377,7 +391,6 @@ function render(){
 document.getElementById("useless").onclick = () => {
   window.open(uselessWebButton())
 }
-
 
 
 
